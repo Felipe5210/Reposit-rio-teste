@@ -3,58 +3,42 @@
     <div>Criar Modelo</div>
     <app-menu-lateral></app-menu-lateral>
     <form action="submit" [formGroup]="myForm">
-      <div>
-        <input
-          type="text"
-          placeholder="Nome do Modelo"
-          formControlName="nomeDoModelo"
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Tipo do Modelo"
-          formControlName="tipoModelo"
-        />
-      </div>
-      <div>
-        <select
-          formControlName="selecionarColecao"
-          (change)="atualizarSelecionarColecao($event)"
-        >
-          <option disabled selected>Selecione uma opção</option>
-          <option *ngFor="let colecao of colecoes" [value]="colecao">
-            {{ colecao }}
-          </option>
-        </select>
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Responsavel pelo modelo"
-          formControlName="responsavelPeloModelo"
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Possui Bordado ?"
-          formControlName="possuiBordado"
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Possui Estampa"
-          formControlName="possuiEstampa"
-        />
+      <div class="row">
+        <div class="col-6">
+          <div>
+            <input type="text" placeholder="Nome do Modelo" formControlName="nomeDoModelo" />
+          </div>
+          <div>
+            <input type="text" placeholder="Tipo do Modelo" formControlName="tipoModelo" />
+          </div>
+          <div>
+            <select formControlName="selecionarColecao" (change)="atualizarSelecionarColecao($event)">
+              <option disabled selected>Selecione uma opção</option>
+              <option *ngFor="let colecao of colecoes" [value]="colecao">{{ colecao }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div>
+            <input type="text" placeholder="Responsavel pelo modelo" formControlName="responsavelPeloModelo" />
+          </div>
+          <div>
+            <input type="text" placeholder="Possui Bordado ?" formControlName="possuiBordado" />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Possui Estampa"
+              formControlName="possuiEstampa"
+              formControlName="possuiEstampa"
+            />
+          </div>
+        </div>
       </div>
     </form>
     <div class="buttons">
-      <div>
-        <button class="btn btn-primary" type="submit" (click)="onSubmit()">
-          Criar Modelo
-        </button>
+      <div class="position-relative float-end">
+        <button class="btn btn-primary" type="submit" (click)="onSubmit()">Criar Modelo</button>
       </div>
       <div>
         <button class="btn btn-primary" routerLink="/home">Cancelar</button>

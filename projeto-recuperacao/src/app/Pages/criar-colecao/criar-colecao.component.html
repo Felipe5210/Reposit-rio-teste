@@ -3,60 +3,37 @@
     <div>Criar coleção</div>
     <app-menu-lateral></app-menu-lateral>
     <form action="submit" [formGroup]="myForm">
-      <div>
-        <input
-          type="text"
-          placeholder="Nome da coleção"
-          formControlName="nomeColecao"
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Responsável pela coleção"
-          formControlName="responsavelColecao"
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Para qual estação?"
-          formControlName="estacao"
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Para qual marca você está criando?"
-          formControlName="marca"
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Qual é o orçamento desta coleção"
-          formControlName="orcamento"
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Ano de lançamento"
-          formControlName="anoLancamento"
-        />
+      <div class="row">
+        <div class="col-6">
+          <div>
+            <input type="text" placeholder="Nome da coleção" formControlName="nomeColecao" />
+          </div>
+          <div>
+            <input type="text" placeholder="Responsável pela coleção" formControlName="responsavelColecao" />
+          </div>
+          <div>
+            <input type="text" placeholder="Para qual estação?" formControlName="estacao" />
+          </div>
+        </div>
+        <div class="col-6 text-end">
+          <div>
+            <input type="text" placeholder="Para qual marca você está criando?" formControlName="marca" />
+          </div>
+          <div>
+            <input type="text" placeholder="Qual é o orçamento desta coleção" formControlName="orcamento" />
+          </div>
+          <div>
+            <input type="text" placeholder="Ano de lançamento" formControlName="anoLancamento" />
+          </div>
+        </div>
       </div>
     </form>
     <div class="img-container">
-      <img
-        src="../../../assets/image 1.png"
-        alt="Imagem de uma mulher com um vestido"
-      />
+      <img src="../../../assets/image 1.png" alt="Imagem de uma mulher com um vestido" />
     </div>
     <div class="buttons">
       <div>
-        <button class="btn btn-primary" type="submit" (click)="onSubmit()">
-          Criar coleção
-        </button>
+        <button class="btn btn-primary" type="submit" (click)="onSubmit()">Criar coleção</button>
       </div>
       <div>
         <button class="btn btn-primary" routerLink="/home">Cancelar</button>
