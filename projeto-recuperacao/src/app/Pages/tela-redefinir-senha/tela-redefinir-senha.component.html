@@ -1,0 +1,64 @@
+<style>
+  html,
+  body {
+    min-height: 100vh;
+  }
+
+  body {
+    background-color: lightgrey;
+  }
+
+  .bg-lightgray {
+    background-color: rgb(236, 232, 232);
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-container > div {
+    width: 100%;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+  }
+</style>
+
+<body class="bg-lightgray vh-100 d-flex align-items-center">
+  <div class="container login-container">
+    <div class="icone mb-3">
+      <img src="../../assets/audaces-favicon.png" alt="" />
+    </div>
+    <div class="row justify-content-center align-self-center">
+      <div class="col-sm-8 col-md-6 col-lg-5 mx-auto text-center">
+        <div class="login-box bg-light p-5">
+          <h2 class="text-center mb-4">
+            <span routerLink="/login" class="arrow">&#8592;</span> Redefinir
+            Senha
+          </h2>
+          <p class="text-center">
+            Digite o e-mail associado à sua conta e enviaremos instruções para
+            redefinir sua senha.
+          </p>
+          <form>
+            <div class="form-group input-group mb-4">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Informe seu email"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Enviar Recuperação
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

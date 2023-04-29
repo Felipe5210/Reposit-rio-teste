@@ -1,0 +1,44 @@
+<div class="main-container">
+  <div>
+    <app-menu-lateral></app-menu-lateral>
+    <div class="dashboard">
+      <app-card-dashboard
+        [cardTitle]="cardTitleColecoes"
+        [cardValue]="colecoesCardValue"
+      ></app-card-dashboard>
+      <app-card-dashboard
+        [cardTitle]="cardTitleModelos"
+        [cardValue]="modelosCardValue"
+      ></app-card-dashboard>
+      <app-card-dashboard
+        [cardTitle]="cardTitleOrcamento"
+        [cardValue]="OrcamentoCardValue"
+      ></app-card-dashboard>
+    </div>
+    <div>
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Coleção</th>
+              <th scope="col">Responsável</th>
+              <th scope="col">Modelos</th>
+              <th scope="col">Orçamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let colecao of colecoes" (click)="onClick(colecao)">
+              <td>{{ colecao.colecao }}</td>
+              <td>{{ colecao.responsavel }}</td>
+              <td>{{ colecao.modelos }}</td>
+              <td>{{ colecao.orcamento }}</td>
+            </tr>
+            <tr *ngIf="!colecoes || colecoes.length == 0">
+              <td colspan="4">Nenhum resultado encontrado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

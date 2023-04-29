@@ -1,0 +1,69 @@
+<style>
+  html,
+  body {
+    min-height: 100vh;
+  }
+
+  body {
+    background-color: lightgrey;
+  }
+
+  .bg-lightgray {
+    background-color: rgb(236, 232, 232);
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-container > div {
+    width: 100%;
+  }
+</style>
+
+<body class="bg-lightgray vh-100 d-flex align-items-center">
+  <div class="container login-container">
+    <div class="icone mb-3">
+      <img src="../../assets/audaces-favicon.png" alt="" />
+    </div>
+    <div class="row justify-content-center align-self-center">
+      <div class="col-sm-8 col-md-6 col-lg-5 mx-auto text-center">
+        <div class="login-box bg-light p-5">
+          <h2 class="text-center mb-4">Sign In</h2>
+          <p class="text-center">
+            Insira suas credenciais para acessar sua conta:
+          </p>
+          <form>
+            <div class="form-group input-group mb-4">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Insira seu email"
+              />
+            </div>
+            <div class="form-group input-group mb-4">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Insira sua senha"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              {{ loginButtonText }}
+            </button>
+          </form>
+          <div class="text-center">
+            <p class="mt-4">
+              Esqueceu a senha ?
+              <a routerLink="/redefinirsenha">Redefinir senha</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

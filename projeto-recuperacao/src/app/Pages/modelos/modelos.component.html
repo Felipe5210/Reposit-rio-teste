@@ -1,0 +1,42 @@
+<div class="main-container">
+  <div>
+    <app-menu-lateral></app-menu-lateral>
+    <div>
+      <div>
+        <div>
+          <h2>Modelos</h2>
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              routerLink="/criarmodelo"
+            >
+              Criar Modelo
+            </button>
+          </div>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ModeloID</th>
+              <th scope="col">Nome do Modelo</th>
+              <th scope="col">Responsável</th>
+              <th scope="col">Coleção</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let modelo of modelos">
+              <td>{{ modelo.id }}</td>
+              <td>{{ modelo.nomeDoModelo }}</td>
+              <td>{{ modelo.responsavelPeloModelo }}</td>
+              <td>{{ modelo.colecao }}</td>
+            </tr>
+            <tr *ngIf="!modelos || modelos.length == 0">
+              <td colspan="4">Nenhum resultado encontrado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

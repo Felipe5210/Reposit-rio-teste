@@ -1,0 +1,41 @@
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top:  5rem;
+}
+
+.dashboard{
+ display: flex;
+ gap: 1rem;
+}
+
+
+.center-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.img-container{
+    width: 20%;
+    height: 100%;
+   
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+}
