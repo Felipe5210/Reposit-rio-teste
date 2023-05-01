@@ -20,18 +20,18 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Coleção</th>
-              <th scope="col">Responsável</th>
-              <th scope="col">Modelos</th>
+              <th scope="col">ColeçãoId</th>
+              <th scope="col">Nome Da Coleção</th>
               <th scope="col">Orçamento</th>
+              <th scope="col">Responsável</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let colecao of colecoes.slice(0,5)">
-              <td>{{ colecao.colecao }}</td>
-              <td>{{ colecao.responsavel }}</td>
-              <td>{{ colecao.modelos }}</td>
+            <tr *ngFor="let colecao of colecoes">
+              <td>{{ colecao.id }}</td>
+              <td>{{ colecao.nomeColecao }}</td>
               <td>{{ colecao.orcamento }}</td>
+              <td>{{ colecao.responsavelColecao }}</td>
             </tr>
             <tr *ngIf="!colecoes || colecoes.length == 0">
               <td colspan="4">Nenhum resultado encontrado.</td>

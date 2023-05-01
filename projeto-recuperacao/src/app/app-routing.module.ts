@@ -11,6 +11,11 @@ import { CriarmodeloComponent } from "./Pages/criarmodelo/criarmodelo.component"
 import { EditarModeloComponent } from "./Pages/editar-modelo/editar-modelo.component";
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     component: TelaLoginComponent
   },

@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tela-login',
   templateUrl: './tela-login.component.html',
   styleUrls: ['./tela-login.component.scss']
 })
-export class TelaLoginComponent {
+export class TelaLoginComponent implements OnInit {
  // passa texto para o componente button
- loginButtonText: string = 'Entrar';
- ngForm: any;
- email: string | undefined;
- password: string | undefined;
- 
- constructor() {}
+  loginButtonText: string = 'Entrar';
 
- ngOnInit(): void {}
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {}
+  onClick(){
+    this.router.navigate(['/home']);
+  }
 }

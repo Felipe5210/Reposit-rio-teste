@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { map } from 'rxjs';
 import { CriarmodeloService } from 'src/app/Shared/Services/criarmodelo.service';
-import { CriarColecaoComponent } from '../criar-colecao/criar-colecao.component';
 import { CriarColecaoService } from 'src/app/Shared/Services/criarcolecaoservice.service';
 
 @Component({
@@ -10,15 +8,27 @@ import { CriarColecaoService } from 'src/app/Shared/Services/criarcolecaoservice
   templateUrl: './criarmodelo.component.html',
   styleUrls: ['./criarmodelo.component.scss']
 })
-export class CriarmodeloComponent {
-  myForm!: FormGroup; 
-  criarmodeloService: any;
-  colecoes: any[] | undefined;
-  constructor(private criarModeloService: CriarmodeloService, private criarColecaoService: CriarColecaoService) { }
+export class CriarmodeloComponent implements OnInit {
+  myForm: FormGroup;
+  colecoes: string[] = [];
 
-  ngOnInit() {
+  constructor(
+    private criarModeloService: CriarmodeloService,
+    private criarColecaoService: CriarColecaoService
+  ) { 
     this.myForm = new FormGroup({
-      nomeDoModelo: new FormControl(),
+      nomeModelo: new FormControl(),
+      tipoModelo: new FormControl(),
+      selecionarColecao: new FormControl(),
+      responsavelmodelo: new FormControl(),
+      possuiBordado: new FormControl(),
+      possuiEstampa: new FormControl()
+    });
+  }
+
+  ngOnInit(): void {
+    this.myForm = new FormGroup({
+      nomeModelo: new FormControl(),
       tipoModelo: new FormControl(),
       selecionarColecao: new FormControl(),
       responsavelmodelo: new FormControl(),
@@ -27,7 +37,6 @@ export class CriarmodeloComponent {
     });
     this.getDatas();
   }
-
 
   atualizarSelecionarColecao(event: Event) {
     const target = event.target as HTMLSelectElement;
@@ -43,10 +52,7 @@ export class CriarmodeloComponent {
   // pega os nomeColecao do json na tabela de criarcolecao e popula as opções do select
   getDatas() {
     this.criarColecaoService.getDatas().subscribe((data: any) => {
-      this.colecoes = data.map((item: any) => {
-        return item.nomeColecao;
-      });
+      this.colecoes = data.map((item: any) => item.nomeColecao);
     });
   }
-  
 }

@@ -11,8 +11,6 @@ import { CriarmodeloService } from 'src/app/Shared/Services/criarmodelo.service'
 })
 export class ColecoesComponent {
 modelos: Tabela[] = [];
-
-
   constructor(private criarColecaoService:CriarColecaoService,
     private criarModeloService: CriarmodeloService,private router: Router) { }
 

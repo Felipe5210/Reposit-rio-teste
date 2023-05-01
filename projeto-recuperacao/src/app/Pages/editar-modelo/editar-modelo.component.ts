@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Colecao } from 'src/app/Shared/Interface/Colecao';
@@ -10,35 +10,35 @@ import { CriarmodeloService } from 'src/app/Shared/Services/criarmodelo.service'
   templateUrl: './editar-modelo.component.html',
   styleUrls: ['./editar-modelo.component.scss']
 })
-export class EditarModeloComponent {
-  myForm: FormGroup;
-  colecao: Colecao[] = [];  
-  
+export class EditarModeloComponent implements OnInit {
+  myForm = new FormGroup({
+    nomeModelo: new FormControl(''),
+    responsavelmodelo: new FormControl(''),
+    tipoModelo: new FormControl(''),
+    colecao: new FormControl(''),
+    possuiBordado: new FormControl(false),
+    possuiEstampa: new FormControl(false),
+    selecionarColecao: new FormControl('')
+  });
+  colecao: Colecao[] = [];
+
   constructor(
     private criarModeloService: CriarmodeloService,
     private criarColecaoService: CriarColecaoService,
     private activatedRoute: ActivatedRoute
-  ) { 
-    this.myForm = new FormGroup({
-      nomeModelo: new FormControl(''),
-      responsavelmodelo: new FormControl(''),
-      tipoModelo: new FormControl(''),
-      colecao: new FormControl(''),
-      possuiBordado: new FormControl(''),
-      possuiEstampa: new FormControl(''),
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.criarModeloService.getDataById(id).subscribe(modelo => {
       this.myForm.patchValue({
         nomeModelo: modelo.nomeModelo,
-        ResponsavelColecao: modelo.ResponsavelColecao,
+        responsavelmodelo: modelo.responsavelmodelo,
         tipoModelo: modelo.tipoModelo,
         colecao: modelo.colecao,
         possuiBordado: modelo.possuiBordado,
-        possuiEstampa: modelo.possuiEstampa
+        possuiEstampa: modelo.possuiEstampa,
+        selecionarColecao: modelo.colecao
       });
     });
     this.dados();
@@ -47,35 +47,22 @@ export class EditarModeloComponent {
   dados() {
     this.criarColecaoService.getDatas().subscribe((data: any) => {
       this.colecao = data;
+      console.log(this.colecao)
     });
   }
 
-  atualizarSubmit(){
-    // recupera os valores do formulário
-    const nomeModelo = this.myForm.get('nomeModelo')?.value;
-    const responsavelmodelo = this.myForm.get('responsavelmodelo')?.value;
-    const tipoModelo = this.myForm.get('tipoModelo')?.value;
-    const colecao = this.myForm.get('colecao')?.value;
-    const possuiBordado = this.myForm.get('possuiBordado')?.value;
-    const possuiEstampa = this.myForm.get('possuiEstampa')?.value;
-
-    console.log(possuiBordado)
- 
-  
-    // cria um objeto com os valores recuperados do formulário
+  atualizarSubmit(): void {
     const modeloAtualizado = {
-      nomeModelo,
-      responsavelmodelo,
-      tipoModelo,
-      colecao,
-      possuiBordado,
-      possuiEstampa
+      nomeModelo: this.myForm.value.nomeModelo,
+      responsavelmodelo: this.myForm.value.responsavelmodelo,
+      tipoModelo: this.myForm.value.tipoModelo,
+      colecao: this.myForm.value.colecao,
+      possuiBordado: this.myForm.value.possuiBordado,
+      possuiEstampa: this.myForm.value.possuiEstampa,
+      selecionarColecao: this.myForm.value.selecionarColecao
     };
-  
-    // envia o objeto para o serviço de atualização de dados
+
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.criarModeloService.updateDataById(id, modeloAtualizado).subscribe();
-
   }
-  
 }

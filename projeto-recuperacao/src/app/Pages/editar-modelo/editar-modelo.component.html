@@ -47,6 +47,12 @@
             </form>
           </div>
           <div>
+            <select formControlName="selecionarColecao" (change)="atualizarSubmit()">
+              <option disabled selected>Selecione uma opção</option>
+              <option *ngFor="let item of colecao" [value]="item.nomeColecao">{{ item.nomeColecao }}</option>
+            </select>
+          </div>
+          <div>
             <p>Possui Bordado</p>
             <label for="possuiBordado-sim">
               <input type="radio"  name="possuiBordado" value="sim" formControlName="possuiBordado">

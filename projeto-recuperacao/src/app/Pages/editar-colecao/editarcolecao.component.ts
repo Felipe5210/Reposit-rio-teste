@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CriarColecaoService } from 'src/app/Shared/Services/criarcolecaoservice.service';
 
 @Component({
@@ -13,7 +13,8 @@ export class EditarcolecaoComponent implements OnInit {
 
   constructor(
     private criarColecaoService: CriarColecaoService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
   ) {
     this.myForm = new FormGroup({
       nomeColecao: new FormControl(''),
@@ -24,29 +25,36 @@ export class EditarcolecaoComponent implements OnInit {
       anoLancamento: new FormControl('')
     });
   }
+
   ngOnInit(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+
+    this.myForm = this.fb.group({
+      nomeColecao: ['', Validators.required],
+      responsavelColecao: ['', Validators.required],
+      estacao: ['', Validators.required],
+      marca: ['', Validators.required],
+      orcamento: ['', Validators.required],
+      anoLancamento: ['', Validators.required]
+    });
+
     this.criarColecaoService.getDataById(id).subscribe(colecao => {
-      this.myForm.patchValue({
-        nomeColecao: colecao.nomeColecao,
-        responsavelColecao: colecao.responsavelColecao,
-        estacao: colecao.estacao,
-        marca: colecao.marca,
-        orcamento: colecao.orcamento,
-        anoLancamento: colecao.anoLancamento
-      });
+      this.myForm.patchValue(colecao);
     });
   }
 
-  atualizarSubmit(){
+  atualizarSubmit(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.criarColecaoService.updateDataById(id, this.myForm.value).subscribe();
-    window.location.reload();
+    this.criarColecaoService.updateDataById(id, this.myForm.value).subscribe(() => {
+      window.location.reload();
+    });
   }
 
-  onClick(){
+  onClick(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.criarColecaoService.deleteDataById(id).subscribe();
-    window.location.reload();
+    this.criarColecaoService.deleteDataById(id).subscribe(() => {
+      window.location.reload();
+    });
   }
 }
+

@@ -1,94 +1,59 @@
 {
   "criarcolecao": [
     {
-      "nomeColecao": "asdasdasd",
-      "responsavelColecao": "Felipe Ronaldo",
-      "estacao": "Inverno",
-      "marca": "Adidas",
-      "orcamento": "10000",
-      "anoLancamento": "2024",
-      "id": 177
+      "nomeColecao": "sick",
+      "responsavelColecao": "sick",
+      "estacao": "sick",
+      "marca": "sick",
+      "orcamento": "2",
+      "anoLancamento": "2102",
+      "id": 648
     },
     {
-      "id": 19,
-      "nomeColecao": "Nike",
-      "responsavelColecao": "Felipe",
-      "estacao": "Verão",
-      "marca": "Nike",
-      "orcamento": "9000",
-      "anoLancamento": "2023"
-    },
-    {
-      "id": 409,
-      "nomeColecao": "Renner",
-      "responsavelColecao": "Felipe",
-      "estacao": "Inverno",
-      "marca": "Renner",
-      "orcamento": "8000",
-      "anoLancamento": "2023"
-    },
-    {
-      "id": 739,
-      "nomeColecao": "PatBO",
-      "responsavelColecao": "Felipe",
-      "estacao": "Outono",
-      "marca": "PatBO",
-      "orcamento": "12930",
-      "anoLancamento": "2023"
-    },
-    {
-      "id": 307,
-      "nomeColecao": "LaCoste",
-      "responsavelColecao": "MdChefe",
-      "estacao": "Primavera",
-      "marca": "AhYeah",
-      "orcamento": "10000",
-      "anoLancamento": "2023"
-    },
-    {
-      "id": 3076,
-      "nomeColecao": "LaCoste",
-      "responsavelColecao": "MdChefe",
-      "estacao": "Primavera",
-      "marca": "AhYeah",
-      "orcamento": "10000",
-      "anoLancamento": "2023"
+      "id": 115,
+      "nomeColecao": "sickle2",
+      "responsavelColecao": "sickle2",
+      "estacao": "sickle2",
+      "marca": "sickle2",
+      "orcamento": "2",
+      "anoLancamento": "sickle2"
     }
   ],
   "criarmodelo": [
     {
-      "nomeModelo": "hasudashud",
-      "responsavelmodelo": "ashudasuhd",
-      "tipoModelo": "Camista",
-      "colecao": "Nike",
-      "possuiBordado": "Sim",
-      "possuiEstampa": "Sim",
+      "nomeModelo": "sickle",
+      "responsavelmodelo": "sickle",
+      "tipoModelo": "Chapéu",
+      "possuiBordado": "sim",
+      "possuiEstampa": "nao",
+      "selecionarColecao": "sick",
       "id": 1
     },
     {
-      "nomeModelo": "asdasda",
-      "responsavelmodelo": "asdasd",
-      "tipoModelo": "Meia",
-      "colecao": "Nike",
-      "possuiBordado": "nao",
-      "possuiEstampa": "sim",
+      "nomeModelo": "sick2",
+      "tipoModelo": "sick2",
+      "selecionarColecao": "sickle2",
+      "responsavelmodelo": "sick2",
+      "possuiBordado": "sick2",
+      "possuiEstampa": "sick2",
       "id": 2
     },
     {
-      "nomeModelo": "12312",
-      "responsavelmodelo": "123123",
-      "tipoModelo": "Biquini",
+      "nomeModelo": "Edson",
+      "tipoModelo": "Edson",
+      "selecionarColecao": "sickle2",
+      "responsavelmodelo": null,
       "possuiBordado": "nao",
       "possuiEstampa": "sim",
       "id": 3
     },
     {
-      "nomeDoModelo": "12312",
-      "tipoModelo": "3123123",
-      "selecionarColecao": "PatBO",
+      "nomeModelo": "Edson2",
+      "tipoModelo": "Edson2",
+      "selecionarColecao": "sickle2",
       "responsavelmodelo": null,
-      "possuiBordado": "s",
-      "possuiEstampa": "s",
+      "possuiBordado": "sim",
+      "possuiEstampa": "nao",
       "id": 4
     }
   ]

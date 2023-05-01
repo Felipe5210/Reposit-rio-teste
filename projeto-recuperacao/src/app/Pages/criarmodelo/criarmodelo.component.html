@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-6">
           <div>
-            <input type="text" placeholder="Nome do Modelo" formControlName="nomeDoModelo" />
+            <input type="text" placeholder="Nome do Modelo" formControlName="nomeModelo" />
           </div>
           <div>
             <input type="text" placeholder="Tipo do Modelo" formControlName="tipoModelo" />
@@ -18,20 +18,28 @@
             </select>
           </div>
         </div>
-        <div class="col-6">
+        <div>
           <div>
-            <input type="text" placeholder="Responsavel pelo modelo" formControlName="responsavelPeloModelo" />
+            <p>Possui Bordado</p>
+            <label for="possuiBordado-sim">
+              <input type="radio"  name="possuiBordado" value="sim" formControlName="possuiBordado">
+              Sim
+            </label>
+            <label for="possuiBordado-nao">
+              <input type="radio" id="possuiBordado-nao" name="possuiBordado" value="nao" formControlName="possuiBordado">
+              Não
+            </label>
           </div>
           <div>
-            <input type="text" placeholder="Possui Bordado ?" formControlName="possuiBordado" />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Possui Estampa"
-              formControlName="possuiEstampa"
-              formControlName="possuiEstampa"
-            />
+            <p>Possui Estampa</p>
+            <label for="possuiEstampa-sim">
+              <input type="radio" id="possuiEstampa-sim" name="possuiEstampa" value="sim" formControlName="possuiEstampa">
+              Sim
+            </label>
+            <label for="possuiEstampa-nao">
+              <input type="radio" id="possuiEstampa-nao" name="possuiEstampa" value="nao" formControlName="possuiEstampa" >
+              Não
+            </label>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, forkJoin, map, switchMap,} from 'rxjs';
-import { Tabela } from 'src/app/Shared/Interface/table';
+import { Colecao } from 'src/app/Shared/Interface/Colecao';
 import { CriarColecaoService } from 'src/app/Shared/Services/criarcolecaoservice.service';
 import { CriarmodeloService } from 'src/app/Shared/Services/criarmodelo.service';
 
@@ -14,7 +14,7 @@ export class HomeComponent {
   cardTitleColecoes = 'Card Dashboard';
   cardTitleModelos = 'Modelos';
   cardTitleOrcamento = 'Orçamento Médio (R$)';
-  colecoes: Tabela[] = [];
+  colecoes: Colecao[] = [];
 
 
   colecoesCardValue: Observable<number> | undefined;
@@ -34,8 +34,18 @@ export class HomeComponent {
     this.colecoesCardValue = this.colecoesNumero();
     this.modelosCardValue = this.modelosNumero();
     this.OrcamentoCardValue = this.orcamentoMedio();
+
+    this.getData();
   }
-  
+  // pega todas as coleções e modelos e imprimi no console
+  getData(): void {
+    this.criarColecaoService.getDatas().subscribe((data: any) => {
+      this.colecoes = data;
+      console.log(this.colecoes);
+    });
+  }
+
+
   colecoesNumero(): Observable<number> {
     return this.criarColecaoService.getDatas().pipe(
       map((data: any) => data.length)
