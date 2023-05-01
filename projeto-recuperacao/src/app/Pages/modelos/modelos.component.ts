@@ -4,6 +4,7 @@ import { Modelos } from 'src/app/Shared/Interface/modelos';
 import { CriarColecaoService } from 'src/app/Shared/Services/criarcolecaoservice.service';
 import { Observable, map } from 'rxjs';
 import { CriarmodeloService } from 'src/app/Shared/Services/criarmodelo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modelos',
@@ -16,33 +17,50 @@ export class ModelosComponent implements OnInit {
   id: Observable<number> | undefined;
   nomeDoModelo: Observable<string> | undefined;
 
-  constructor(private criarModeloService: CriarmodeloService) { }
+  constructor(private criarModeloService: CriarmodeloService, private router: Router) { }
 
   ngOnInit(): void { 
-    this.id = this.criarModeloService.getDatas().pipe(
-      map((data: any) => data.length)
-    );
-    this.modelosNome();
+    this.dados();
+    console.log(this.modelos)
   }
 
-  modelosNome() {
-    this.criarModeloService.getDatas().subscribe((data: any) => {
-      this.modelos = data;
-    });
+//  async dados() {
+//    this.criarModeloService.getDatas().subscribe((data: any) => {
+//     console.log(data)
+//   });
+//   }
+
+
+  async dados() {
+    const modelos: any = await this.criarModeloService.getDatas().toPromise();
+    const modelosComColecoes = await Promise.all(
+      modelos.map(async (modelo:any) => {
+        const colecoes = await this.criarModeloService
+          .getDatas()
+          .toPromise()
+          .then((colecoes:any) =>
+            colecoes.filter(
+              (colecao:any) => colecao.selecionarModelo === modelo.nomeModelo
+            )
+          );
+
+        const colecao = colecoes.length > 0 ? colecoes[0].id : "Sem colecao";
+        return {
+          id: modelo.id,
+          nomeDoModelo: modelo.nomeModelo,
+          responsavelmodelo: modelo.responsavelmodelo,
+          selecionarColecao: colecao,
+        };
+      }
+
+    ))
+    this.modelos = modelosComColecoes;
   }
- 
-  dados(): Observable<Modelos[]> {
-    return this.criarModeloService.getDatas().pipe(
-      map((data: any) => {
-        return data.map((item: any) => {
-          return {
-            id: item.id,
-            nome: item.nome,
-            responsavel: item.responsavel
-          };
-        });
-      })
-    );
+
+
+
+  onClick(modelo:any): void {
+    this.router.navigate(['/editarmodelo', modelo.id]);
   }
 }
 

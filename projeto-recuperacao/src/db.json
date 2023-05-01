@@ -1,13 +1,13 @@
 {
   "criarcolecao": [
     {
-      "id": 177,
-      "nomeColecao": "Adidas",
-      "responsavelColecao": "Felipe",
+      "nomeColecao": "asdasdasd",
+      "responsavelColecao": "Felipe Ronaldo",
       "estacao": "Inverno",
       "marca": "Adidas",
       "orcamento": "10000",
-      "anoLancamento": "2023"
+      "anoLancamento": "2024",
+      "id": 177
     },
     {
       "id": 19,
@@ -44,35 +44,52 @@
       "marca": "AhYeah",
       "orcamento": "10000",
       "anoLancamento": "2023"
+    },
+    {
+      "id": 3076,
+      "nomeColecao": "LaCoste",
+      "responsavelColecao": "MdChefe",
+      "estacao": "Primavera",
+      "marca": "AhYeah",
+      "orcamento": "10000",
+      "anoLancamento": "2023"
     }
   ],
   "criarmodelo": [
     {
-      "nomeDoModelo": "Camisetas Sport",
+      "nomeModelo": "hasudashud",
+      "responsavelmodelo": "ashudasuhd",
       "tipoModelo": "Camista",
-      "selecionarColecao": "Adidas",
-      "responsavelPeloModelo": "Felipe",
+      "colecao": "Nike",
       "possuiBordado": "Sim",
       "possuiEstampa": "Sim",
       "id": 1
     },
     {
-      "nomeDoModelo": "Shorts E bermudas",
-      "tipoModelo": "",
-      "selecionarColecao": "Renner",
-      "responsavelPeloModelo": "felipe",
+      "nomeModelo": "asdasda",
+      "responsavelmodelo": "asdasd",
+      "tipoModelo": "Meia",
+      "colecao": "Nike",
       "possuiBordado": "nao",
       "possuiEstampa": "sim",
       "id": 2
     },
     {
-      "nomeDoModelo": "Vestido Casual",
-      "tipoModelo": "",
-      "selecionarColecao": "LaCoste",
-      "responsavelPeloModelo": "MdChefe",
-      "possuiBordado": "Sim",
-      "possuiEstampa": "Sim",
+      "nomeModelo": "12312",
+      "responsavelmodelo": "123123",
+      "tipoModelo": "Biquini",
+      "possuiBordado": "nao",
+      "possuiEstampa": "sim",
       "id": 3
+    },
+    {
+      "nomeDoModelo": "12312",
+      "tipoModelo": "3123123",
+      "selecionarColecao": "PatBO",
+      "responsavelmodelo": null,
+      "possuiBordado": "s",
+      "possuiEstampa": "s",
+      "id": 4
     }
   ]
 }

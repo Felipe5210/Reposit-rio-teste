@@ -12,7 +12,7 @@ export class EditarcolecaoComponent implements OnInit {
   myForm: FormGroup;
 
   constructor(
-    private ciarColecaoService: CriarColecaoService,
+    private criarColecaoService: CriarColecaoService,
     private activatedRoute: ActivatedRoute
   ) {
     this.myForm = new FormGroup({
@@ -26,7 +26,7 @@ export class EditarcolecaoComponent implements OnInit {
   }
   ngOnInit(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.ciarColecaoService.getDataById(id).subscribe(colecao => {
+    this.criarColecaoService.getDataById(id).subscribe(colecao => {
       this.myForm.patchValue({
         nomeColecao: colecao.nomeColecao,
         responsavelColecao: colecao.responsavelColecao,
@@ -40,13 +40,13 @@ export class EditarcolecaoComponent implements OnInit {
 
   atualizarSubmit(){
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.ciarColecaoService.updateDataById(id, this.myForm.value).subscribe();
+    this.criarColecaoService.updateDataById(id, this.myForm.value).subscribe();
     window.location.reload();
   }
 
   onClick(){
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.ciarColecaoService.deleteDataById(id).subscribe();
+    this.criarColecaoService.deleteDataById(id).subscribe();
     window.location.reload();
   }
 }

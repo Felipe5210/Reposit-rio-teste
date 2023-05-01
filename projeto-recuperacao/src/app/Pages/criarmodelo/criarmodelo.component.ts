@@ -21,7 +21,7 @@ export class CriarmodeloComponent {
       nomeDoModelo: new FormControl(),
       tipoModelo: new FormControl(),
       selecionarColecao: new FormControl(),
-      responsavelPeloModelo: new FormControl(),
+      responsavelmodelo: new FormControl(),
       possuiBordado: new FormControl(),
       possuiEstampa: new FormControl()
     });

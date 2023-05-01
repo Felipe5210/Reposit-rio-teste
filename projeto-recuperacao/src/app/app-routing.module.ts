@@ -43,7 +43,7 @@ const routes: Routes = [
     component: CriarmodeloComponent
   },
   {
-    path: 'editarmodelo',
+    path: 'editarmodelo/:id',
     component: EditarModeloComponent
   }
 ];

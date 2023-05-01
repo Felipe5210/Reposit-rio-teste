@@ -27,7 +27,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let colecao of colecoes" (click)="onClick(colecao)">
+            <tr *ngFor="let colecao of colecoes.slice(0,5)">
               <td>{{ colecao.colecao }}</td>
               <td>{{ colecao.responsavel }}</td>
               <td>{{ colecao.modelos }}</td>

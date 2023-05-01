@@ -25,11 +25,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let modelo of modelos">
+            <tr *ngFor="let modelo of modelos" (click)="onClick(modelo)">
               <td>{{ modelo.id }}</td>
               <td>{{ modelo.nomeDoModelo }}</td>
-              <td>{{ modelo.responsavelPeloModelo }}</td>
-              <td>{{ modelo.colecao }}</td>
+              <td>{{ modelo.responsavelmodelo }}</td>
+              <td>{{ modelo.selecionarColecao }}</td>
             </tr>
             <tr *ngIf="!modelos || modelos.length == 0">
               <td colspan="4">Nenhum resultado encontrado.</td>

@@ -34,9 +34,6 @@ export class HomeComponent {
     this.colecoesCardValue = this.colecoesNumero();
     this.modelosCardValue = this.modelosNumero();
     this.OrcamentoCardValue = this.orcamentoMedio();
-    this.dados().subscribe((data: any) => {
-      this.colecoes = data;
-    });
   }
   
   colecoesNumero(): Observable<number> {
@@ -62,32 +59,6 @@ export class HomeComponent {
     );
   }
 
-
-  dados(): Observable<any> {
-    return this.criarColecaoService.getDatas().pipe(
-      switchMap((colecoes: any) => {
-        const colecoesComModelos = colecoes.map((colecao: any) => {
-          return this.criarModeloService.getDatas().pipe(
-            map((modelos: any) => {
-              const modelosDaColecao = modelos.filter((modelo: any) => modelo.nomeDoModelo === colecao.nomeColecao);
-              return {
-                orcamento: colecao.orcamento,
-                responsavel: colecao.responsavelColecao,
-                colecao: colecao.nomeColecao,
-                modelos: modelosDaColecao.length,
-                id: colecao.id
-              };
-            })
-          );
-        });
-        return forkJoin(colecoesComModelos);
-      })
-    );
-  }
-
-  onClick(colecao:any): void {
-    this.router.navigate(['editarcolecoes', colecao.id]);
-  }
 }
 
 

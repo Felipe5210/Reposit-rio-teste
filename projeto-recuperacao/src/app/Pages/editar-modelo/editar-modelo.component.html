@@ -4,10 +4,10 @@
     <div>
       <div>
         <div>
-          <h2>Coleções</h2>
+          <h2>Editar Modelos</h2>
         </div>
         <div>
-          <button type="button" class="btn btn-primary">Atualizar</button>
+          <button type="button" class="btn btn-primary" (click)="atualizarSubmit()">Atualizar</button>
         </div>
         <div>
           <button type="button" class="btn btn-primary">Cancelar</button>
@@ -21,44 +21,52 @@
           <div>
             <input
               type="text"
-              placeholder="Nome da coleção"
-              formControlName="nomeColecao"
+              placeholder="Nome do modelo"
+              formControlName="nomeModelo"
             />
           </div>
           <div>
             <input
               type="text"
-              placeholder="Responsável pela coleção"
-              formControlName="responsavelColecao"
+              placeholder="Responsável pelo Modelo"
+              formControlName="responsavelmodelo"
             />
           </div>
           <div>
-            <input
-              type="text"
-              placeholder="Para qual estação?"
-              formControlName="estacao"
-            />
+            <form [formGroup]="myForm">
+              <select name="tipoModelo" id="tipoModelo" formControlName="tipoModelo">
+                <option value="Bermuda">Bermuda</option>
+                <option value="Biquini">Biquini</option>
+                <option value="Meia">Meia</option>
+                <option value="Chapéu">Chapéu</option>
+                <option value="Calça">Calça</option>
+                <option value="Camiseta">Camiseta</option>
+                <option value="Vestido">Vestido</option>
+                <option value="Saia">Saia</option>
+              </select>
+            </form>
           </div>
           <div>
-            <input
-              type="text"
-              placeholder="Para qual marca você está criando?"
-              formControlName="marca"
-            />
+            <p>Possui Bordado</p>
+            <label for="possuiBordado-sim">
+              <input type="radio"  name="possuiBordado" value="sim" formControlName="possuiBordado">
+              Sim
+            </label>
+            <label for="possuiBordado-nao">
+              <input type="radio" id="possuiBordado-nao" name="possuiBordado" value="nao" formControlName="possuiBordado">
+              Não
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              placeholder="Qual é o orçamento desta coleção"
-              formControlName="orcamento"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Ano de lançamento"
-              formControlName="anoLancamento"
-            />
+            <p>Possui Estampa</p>
+            <label for="possuiEstampa-sim">
+              <input type="radio" id="possuiEstampa-sim" name="possuiEstampa" value="sim" formControlName="possuiEstampa">
+              Sim
+            </label>
+            <label for="possuiEstampa-nao">
+              <input type="radio" id="possuiEstampa-nao" name="possuiEstampa" value="nao" formControlName="possuiEstampa" >
+              Não
+            </label>
           </div>
         </form>
       </div>

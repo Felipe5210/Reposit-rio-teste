@@ -28,23 +28,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Primavera/Verão</td>
-                <td>João</td>
-                <td>10</td>
-                <td>1000</td>
-              </tr>
-              <tr>
-                <td>Inverno</td>
-                <td>João</td>
-                <td>10</td>
-                <td>1000</td>
-              </tr>
-              <tr>
-                <td>Outono</td>
-                <td>João</td>
-                <td>10</td>
-                <td>1000</td>
+              <tr  *ngFor="let colecao of modelos.slice(0,5)" (click)="onClick(colecao)">  
+                <td>{{colecao.colecao }}</td>
+                <td>{{colecao.responsavel}}</td>
+                <td>{{colecao.modelos}}</td>
+                <td>{{colecao.orcamento}}</td>
               </tr>
             </tbody>
           </table>
@@ -53,3 +41,5 @@
     </div>
   </div>
 </div>
+
+```
